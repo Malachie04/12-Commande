@@ -1,0 +1,21 @@
+
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+ 
+
+
+.shadow{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 10px;
+    padding: 30px;
+}
+.wrapper{
+    width: 1200px;
+    margin: auto;
+}
+
+.ajouter{
+    background-color: red;
+}
