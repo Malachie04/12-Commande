@@ -41,6 +41,15 @@ const addOrder = (item_name, item_price, item_quantity) => {
   
 }
 
+const removeOrder = (index) => {  
+  if (index >= 0 && index < commandeList.length) {
+    commandeList.splice(index, 1);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 const global_price=()=>{
   return commandeList.reduce((accumilateur, order) => {
     return accumilateur + order.totalprice();
@@ -53,7 +62,8 @@ const displayOrder=()=>{
   const commande_detail=document.createElement('div');
   commande_detail.classList.add('commande-detail');
   commandeList.forEach((order,index) => {
-    commande_detail.innerHTML += `<p>${index+1}. ${order.display()}</p>`;
+    commande_detail.innerHTML += `<a value='${index}' heref='#'>${index+1}. ${order.display()}</a>`;
+
   });
 
   commandeListDiv.append(commande_detail);
@@ -69,6 +79,24 @@ const displayOrder=()=>{
 }
 
 //Events
+productQuantity.addEventListener('input',(e)=>{
+  const value = e.target.value;
+  if (isNaN(value) || value <= 0) {
+    e.target.value = '';
+  } 
+});
+
+
+procuctpric.addEventListener('input',(e)=>{
+  const value = e.target.value;
+  if (isNaN(value) || value <= 0) {
+    e.target.value = '';
+  } 
+});
+
+productName.addEventListener('input',(e)=>{
+  e.target.value = e.target.value.replace(/[0-9]/g, '');
+});
 
 addOrderbutton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -79,7 +107,6 @@ addOrderbutton.addEventListener('click', (e) => {
   if (addOrder(item_name, item_price, item_quantity)) {
     message='Well done, you added a new order! 🎉';
     displayOrder();
-    
   } else {
     message='Invalid data hahahaha 🙈';
     displayOrder();
