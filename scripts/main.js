@@ -59,10 +59,10 @@ const displayOrder=()=>{
   commandeListDiv.append(commande_detail);
   total_price=global_price();
 
-  totalPriceDiv.innerHTML = `<p>Total Price: $${total_price}</p>`;
+  totalPriceDiv.innerHTML = `<p>Total Price: ${total_price} Euro</p>`;
   nom.forEach(input => input.value = '');
   document.querySelector('.Msg').innerHTML = message;
-  
+
   setTimeout(() => {
     document.querySelector('.Msg').innerHTML = '';
   }, 1000);

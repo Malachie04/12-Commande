@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url(../../image/pizza-savoureuse-proximite-ingredients.png);
 }
  
 
@@ -18,4 +19,12 @@ body{
 
 .ajouter{
     background-color: red;
+}
+.container{
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
 }
