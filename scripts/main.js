@@ -78,6 +78,6 @@ addOrderbutton.addEventListener('click', (e) => {
     
   } else {
     message='Invalid data hahahaha 🙈';
-
+    displayOrder();
   }
 });
