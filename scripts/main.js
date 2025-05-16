@@ -49,16 +49,20 @@ const global_price=()=>{
 
 const displayOrder=()=>{
   commandeListDiv.innerHTML = '';
+
   const commande_detail=document.createElement('div');
   commande_detail.classList.add('commande-detail');
   commandeList.forEach((order,index) => {
     commande_detail.innerHTML += `<p>${index+1}. ${order.display()}</p>`;
   });
+
   commandeListDiv.append(commande_detail);
   total_price=global_price();
+
   totalPriceDiv.innerHTML = `<p>Total Price: $${total_price}</p>`;
   nom.forEach(input => input.value = '');
   document.querySelector('.Msg').innerHTML = message;
+  
   setTimeout(() => {
     document.querySelector('.Msg').innerHTML = '';
   }, 1000);
