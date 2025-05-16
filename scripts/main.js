@@ -2,7 +2,7 @@
 //Components
 const nom=[productName,procuctpric,productQuantity]=document.querySelectorAll('.input');
 const addOrderbutton=document.querySelector('.ajouter');
-const commandeListDiv=document.querySelector('.commande-detail');
+const commandeListDiv=document.querySelector('.commande-bottom');
 const totalPriceDiv=document.querySelector('.totalprice');
 
 //Global variables
@@ -22,7 +22,7 @@ class commande{
     return this.item_price * this.item_quantity;
   }
   display(){
-    return(`${this.item_quantity}X ${this.item_name} - Total $${this.totalprice()}`);
+    return(`${this.item_quantity}X ${this.item_name} - Total ${this.totalprice()} €`);
   }
 }
 
@@ -59,7 +59,7 @@ const displayOrder=()=>{
   commandeListDiv.append(commande_detail);
   total_price=global_price();
 
-  totalPriceDiv.innerHTML = `<p>Total Price: ${total_price} Euro</p>`;
+  totalPriceDiv.innerHTML = `<p>General Total: ${total_price} €</p>`;
   nom.forEach(input => input.value = '');
   document.querySelector('.Msg').innerHTML = message;
 
@@ -74,7 +74,7 @@ addOrderbutton.addEventListener('click', (e) => {
   e.preventDefault();
   const item_name = productName.value;
   const item_price = parseFloat(procuctpric.value);
-  const item_quantity = parseInt(productQuantity.value);
+  const item_quantity = parseFloat(productQuantity.value);
   
   if (addOrder(item_name, item_price, item_quantity)) {
     message='Well done, you added a new order! 🎉';
